@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lennis-dev's email-obfuscater</title>
+    <style>
+        :root {
+            --background: #181818;
+        }
+
+        body {
+            background: var(--background);
+            width: 700px;
+            margin: auto;
+            margin-top: 100px;
+            word-wrap: break-word;
+        }
+
+        a {
+            color: #2244FF;
+        }
+
+        code {
+            background: #111;
+            font-family: monospace;
+            color: #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 36px;
+            display: block;
+            margin: 20px;
+        }
+
+        input {
+            background: #111;
+            font-family: monospace;
+            color: #ccc;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 36px;
+            margin: 20px;
+            outline: none;
+            border: none;
+            margin-top: none;
+            width: calc(100% - 60px);
+        }
+
+        .notvalid {
+            color: #181818;
+            margin: 0 20px;
+            font-size: 16px;
+            font-family: monospace;
+            transition: .2s;
+        }
+
+        input:invalid~.notvalid {
+            color: #F00;
+        }
+
+        .infotext {
+            font-size: 20px;
+            margin: 20px;
+            color: #ccc;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @media screen and (max-width: 700px) {
+            body {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>
+        <div class="infotext">
+            <h1>THIS PAGE NEEDS JAVASCRIPT</h1>
+        </div>
+    </noscript>
+    <div class="infotext">
+        <h1>How does it work?</h1>
+
+        You enter the email address you want to obfuscate in the textfield below and this page will generate a code in
+        real time that you can paste on your website. <br /><br />
+
+        Note: all data you enter here will remain on your device and will NOT be sent to me.<br /><br />
+
+        This tool is open source and was developed by <a href="https://github.com/lennis-dev">lennis-dev</a>, the
+        source
+        code is available on GitHub at this <a href="https://github.com/lennis-dev/email-obfuscater/">link</a>
+    </div>
+    <div>
+        <input id="email" placeholder="please enter your email address here" onkeyup="x(this.value)" type="email">
+        <div class="notvalid">
+            this does not look like a real email address
+        </div>
+    </div>
+    <div>
+        <code>&lt;script&gt;var a=atob(&quot;<span id="code-mail"></span>&quot;.split(&quot;?&quot;).reverse().join(&quot;&quot;)),b=document.createElement(&quot;a&quot;);b.innerText=a;b.href=&quot;mailto:&quot;+a;document.currentScript.replaceWith(b);&lt;/script&gt;</code>
+    </div>
+    <script>
+        function x(input) {
+            input = btoa(input);
+            input = input.split('');
+            var length = input.length;
+            var offset = length;
+            let pairs = [];
+            while (offset > 0) {
+                var max = Math.min(8, offset);
+                var rand = Math.floor(Math.random() * (max - 1 + 1) + 1);
+                var string = "";
+                for (let i = 0; i < rand; i++) {
+                    string += input[length - offset];
+                    offset -= 1;
+                }
+                pairs.push(string);
+            }
+
+            document.getElementById("code-mail").innerText = pairs.reverse().join("?");
+        }
+    </script>
+</body>
+
+</html>
