@@ -69,6 +69,12 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+        .coded-with {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
         @media screen and (max-width: 700px) {
             body {
                 width: 100%;
@@ -86,14 +92,10 @@
     <div class="infotext">
         <h1>How does it work?</h1>
 
-        You enter the email address you want to obfuscate in the textfield below and this page will generate a code in
-        real time that you can paste on your website. <br /><br />
+        This tool encodes your email address in base64 and splits this base64 character string into different sized parts and reverses the order.<br /><br />
 
-        Note: all data you enter here will remain on your device and will NOT be sent to me.<br /><br />
+        the browser splits the string back into the different parts and inverts the sequence again, then decodes the valid base64 code. After that it creates a new link element with the email address and the matching mailto link. finally it inserts this element on the page at the position where the code was.
 
-        This tool is open source and was developed by <a href="https://github.com/lennis-dev">lennis-dev</a>, the
-        source
-        code is available on GitHub at this <a href="https://github.com/lennis-dev/email-obfuscater/">link</a>
     </div>
     <div>
         <input id="email" placeholder="please enter your email address here" onkeyup="x(this.value)" type="email">
@@ -103,6 +105,10 @@
     </div>
     <div>
         <code>&lt;script&gt;var a=atob(&quot;<span id="code-mail"></span>&quot;.split(&quot;?&quot;).reverse().join(&quot;&quot;)),b=document.createElement(&quot;a&quot;);b.innerText=a;b.href=&quot;mailto:&quot;+a;document.currentScript.replaceWith(b);&lt;/script&gt;</code>
+    </div>
+    <div class="infotext coded-with">
+        Coded With &#10084;&#65039; by <a href="https://github.com/lennis-dev">lennis-dev</a>
+
     </div>
     <script>
         function x(input) {
@@ -122,7 +128,7 @@
                 pairs.push(string);
             }
 
-            document.getElementById("code-mail").innerText = pairs.reverse().join("?");
+            document.getElementById(" code-mail").innerText = pairs.reverse().join("?");
         }
     </script>
 </body>
