@@ -1,3 +1,5 @@
+[![](https://img.shields.io/badge/wordpress-plugin-0073AA?logo=wordpress&style=for-the-badge)](https://github.com/lennis-dev/email-obfuscater/releases)
+
 # lennis-dev's email-obfuscater
 
 > You all know the problem with email spam, I have a simple solution
