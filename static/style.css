@@ -1,0 +1,100 @@
+:root {
+    --background: #181818;
+}
+
+body {
+    background: var(--background);
+    width: 700px;
+    margin: auto;
+    margin-top: 100px;
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ccc;
+}
+
+a {
+    color: #2244ff;
+}
+
+code {
+    background: #111;
+    font-family: monospace;
+    color: #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 36px;
+    display: block;
+    margin: 20px;
+}
+
+input {
+    background: #111;
+    font-family: monospace;
+    color: #ccc;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 36px;
+    margin: 20px;
+    outline: none;
+    border: none;
+    margin-top: none;
+    width: calc(100% - 60px);
+}
+
+.notvalid {
+    color: #181818;
+    margin: 0 20px;
+    font-size: 16px;
+    font-family: monospace;
+    transition: 0.2s;
+}
+
+input:invalid ~ .notvalid {
+    color: #f00;
+}
+
+.infotext {
+    font-size: 20px;
+    margin: 20px;
+    color: #ccc;
+}
+
+.coded-with {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+div.output {
+    margin: 20px;
+}
+
+div.output > code {
+    margin: 20px 0px;
+}
+
+.benefits {
+    color: #0a0;
+}
+
+.disadvantage {
+    color: #f00;
+}
+
+.disadvantage > a {
+    color: #f00;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        width: 100%;
+    }
+
+    .coded-with {
+        position: unset;
+        margin-top: 20px;
+        text-align: right;
+    }
+}
