@@ -3,7 +3,7 @@
 Plugin Name: lennis-dev's email-obfuscater
 Plugin URI: https://github.com/lennis-dev/email-obfuscater
 Description: Obfuscates email addresses, which makes it difficult for spam bot to crawl your emails address
-Version: 1.0
+Version: 1.0.2
 Author: Lennis Jaumann
 Author URI: https://github.com/lennis-dev
 License: GPL2
