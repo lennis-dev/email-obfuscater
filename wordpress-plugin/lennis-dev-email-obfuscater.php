@@ -12,6 +12,7 @@ License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 /* Filter – Email Obfuscater Integration */
 
 add_filter("the_content", "fn_emailObfuscater");
+add_filter("wp_footer", "fn_emailObfuscater");
 
 /**
  * Obfuscates email addresses, which makes it difficult for spam bot to crawl your emails address
