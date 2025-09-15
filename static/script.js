@@ -14,7 +14,7 @@ function x(input) {
     }
     pairs.push(string);
   }
-  const encoded = encodeURIComponent(pairs.join(""));
+  let encoded = pairs.reverse().join("?");
   document.getElementById("code-mail").innerText = encoded;
   document.getElementById("code-html").innerText = encoded;
 }
